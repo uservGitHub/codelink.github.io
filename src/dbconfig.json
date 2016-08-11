@@ -1,0 +1,9 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "init":[
+    "create table user(name text primary key,password text,time datetime default(datetime('now','localtime')));",
+    "create table body(id integer primary key autoincrement,body text,keywords text,language text,params text,data blob);",
+    "create table log(bodyid integer,username text,type text,info text,time datetime default(datetime('now','localtime')));"
+  ]
+}
