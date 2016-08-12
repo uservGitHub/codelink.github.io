@@ -7,7 +7,7 @@ var path = require('path');
 var fs = require('fs');
 var pgk = require('../package.json');
 
-const dbfile = path.join(__dirname,'../data',pkg.dbfile);
+const dbfile = path.join(__dirname,'../data',pgk.dbfile);
 
 const exists = fs.existsSync(dbfile);
 
@@ -20,7 +20,7 @@ var db = new sqlite3.Database(dbfile);
 if(!exists){
     var dbconfig = require('./dbconfig');
     dbconfig.init.forEach(function(sql){
-        db.run(sql);
+        var ret = db.run(sql);
     });
 }
 

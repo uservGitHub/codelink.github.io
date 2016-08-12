@@ -1,8 +1,10 @@
-var Jasmine = require('jasmine');
-var SpecReporter = require('jasmine-spec-reporter');
-var noop = function() {};
-var jrunner = new Jasmine();
-jrunner.configureDefaultReporter({print: noop});
-jasmine.getEnv().addReporter(new SpecReporter());
-jrunner.loadConfigFile();
-jrunner.execute();
+    var path = require('path');
+    var Jasmine = require('jasmine');
+    var SpecReporter = require('jasmine-spec-reporter');
+    var noop = function() {};
+    var jrunner = new Jasmine();
+    jrunner.configureDefaultReporter({print: noop});
+    jasmine.getEnv().addReporter(new SpecReporter());
+    var configPath = path.join(__dirname,'./spec/support/jasmine.json');
+    jrunner.loadConfigFile(configPath);
+    jrunner.execute();
